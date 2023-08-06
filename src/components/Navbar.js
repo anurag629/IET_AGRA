@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <Box className="bg-black">
-      <AppBar position="static" color="secondary" className="bg-black text-white">
+      <AppBar position="static" color="secondary">
         <Toolbar>
           <Typography variant='h5' component="div" sx={{ flexGrow: 1 }}>CODER COPS</Typography>
 
