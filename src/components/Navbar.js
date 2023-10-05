@@ -9,7 +9,7 @@ const Navbar = () => {
     <Box className="bg-black">
       <AppBar position="static" color="secondary">
         <Toolbar>
-          <Typography variant='h5' component="div" sx={{ flexGrow: 1 }}>CODER COPS</Typography>
+          <Typography variant='h5' component="div" sx={{ flexGrow: 1 }}>IET AGRA</Typography>
 
           <Button
             component={NavLink}
