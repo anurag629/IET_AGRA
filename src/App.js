@@ -1,9 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginReg from "./pages/auth/LoginReg";
 import ResetPassword from "./pages/auth/ResetPassword";
+import ChangePassword from "./pages/auth/ChangePassword";
 import SendPasswordResetEmail from "./pages/auth/SendPasswordResetEmail";
+import Profile from "./components/dashboard/Profile";
 import Contact from "./pages/Contact";
-import Newsletter from "./pages/newsletter/Newsletter";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
@@ -17,13 +18,15 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="newsletter" element={<Newsletter />}/>
             <Route path="login" element={!access_token ? <LoginReg /> : <Navigate to="/dashboard" />} />
+            <Route path="changepassword" element={<ChangePassword />} />
             <Route path="sendpasswordresetemail" element={<SendPasswordResetEmail />} />
             <Route path="api/account/reset/:id/:token" element={<ResetPassword />} />
+            <Route path="/dashboard" element={access_token ? <Dashboard /> : <Navigate to="/login" />} />
+            <Route path="/profile" element={access_token ? <Profile /> : <Navigate to="/login" />} />
+            <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Route>
-          <Route path="/dashboard" element={access_token ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
+
         </Routes>
       </BrowserRouter>
     </>

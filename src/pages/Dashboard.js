@@ -1,12 +1,13 @@
-import { Button, CssBaseline, Grid, Typography } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { unSetUserToken } from '../features/authSlice';
 import { getToken, removeToken } from '../services/LocalStorageService';
-import ChangePassword from './auth/ChangePassword';
 import { useGetLoggedUserQuery } from '../services/userAuthApi';
 import { useEffect, useState } from 'react';
 import { setUserInfo, unsetUserInfo } from '../features/userSlice';
+import Profile from '../components/dashboard/Profile';
+
 const Dashboard = () => {
   const handleLogout = () => {
     dispatch(unsetUserInfo({ name: "", email: "" }))
@@ -45,18 +46,10 @@ const Dashboard = () => {
   }, [data, isSuccess, dispatch])
 
   return <>
-    <CssBaseline />
-    <Grid container>
-      <Grid item sm={4} sx={{ backgroundColor: 'gray', p: 5, color: 'white' }}>
-        <h1>Dashboard</h1>
-        <Typography variant='h5'>Email: {userData.email}</Typography>
-        <Typography variant='h6'>First Name: {userData.first_name}</Typography>
-        <Typography variant='h6'>Last Name: {userData.last_name}</Typography>
+    <Grid container justifyContent='center' className="pt-8">
+        <Profile name={userData.name} email={userData.email} />
+        
         <Button variant='contained' color='warning' size='large' onClick={handleLogout} sx={{ mt: 8 }}>Logout</Button>
-      </Grid>
-      <Grid item sm={8}>
-        <ChangePassword />
-      </Grid>
     </Grid>
   </>;
 };
