@@ -1,22 +1,30 @@
 import Contact from "../components/home/Contact";
 import Carousel from "../components/home/Carousel";
 import Students from "../components/home/Students";
+import NewsAndEvent from "../components/home/NewsAndEvent/NewsEvent";
+import Locattion from "../components/Location";
 
 const Home = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "#f5f5f5" }}>
+      <section >
         <Carousel />
-      </div>
-
-      <div style={{ backgroundColor: "#ffffff" }}>
+      </section>
+      <section  >
+        {/* <NewsAndEvent /> */}
+      </section>
+      <section >
         <Students />
-      </div>
+      </section>
 
-      <div style={{ backgroundColor: "#f0f0f0" }}>
+      <section >
         <Contact />
-      </div>
+      </section>
+      <section >
+        <Locattion />
+      </section>
+
     </>
   );
 };

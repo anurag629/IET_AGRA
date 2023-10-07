@@ -7,8 +7,11 @@ import Profile from "./components/dashboard/Profile";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import Gallery from "./components/gallery/Gallery";
 import Layout from "./pages/Layout";
 import { useSelector } from "react-redux";
+
+
 function App() {
   const { access_token } = useSelector(state => state.auth)
   return (
@@ -25,6 +28,7 @@ function App() {
             <Route path="/dashboard" element={access_token ? <Dashboard /> : <Navigate to="/login" />} />
             <Route path="/profile" element={access_token ? <Profile /> : <Navigate to="/login" />} />
             <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
+            <Route path="gallery" element={<Gallery />} />
           </Route>
 
         </Routes>
