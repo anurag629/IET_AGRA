@@ -14,12 +14,16 @@ const SideNavItem = ({ sidebarData }) => {
           {sidebarData.map((item, index) => (
             <li
               key={index}
-              className={`cursor-pointer p-2 ${
-                activeItemIndex === index ? "bg-blue-500 text-white" : ""
-              }`}
+              className={`cursor-pointer p-2 ${activeItemIndex === index ? "bg-blue-500 text-white" : ""
+                }`}
               onClick={() => handleItemClick(index)}
             >
-              {item.title}
+              <div class="flex items-center">
+                <div class="mr-2">
+                  {item.icon}
+                </div>
+                <span>{item.title}</span>
+              </div>
             </li>
           ))}
         </ul>
