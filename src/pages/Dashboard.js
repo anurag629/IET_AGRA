@@ -46,11 +46,13 @@ const Dashboard = () => {
   }, [data, isSuccess, dispatch])
 
   return <>
-    <Grid container justifyContent='center' className="pt-8">
-        <Profile name={userData.name} email={userData.email} />
-        
+    <div className="container mx-auto p-8">
+      <Profile name={userData.name} email={userData.email} />
+      <div className='flex '>
         <Button variant='contained' color='warning' size='large' onClick={handleLogout} sx={{ mt: 8 }}>Logout</Button>
-    </Grid>
+      </div>
+
+    </div>
   </>;
 };
 

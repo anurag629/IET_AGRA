@@ -1,7 +1,7 @@
 import Contact from "../components/home/Contact";
 import Carousel from "../components/home/Carousel";
-import Students from "../components/home/Students";
-import NewsAndEvent from "../components/home/NewsAndEvent/NewsEvent";
+import Students from "../components/home/students/Students";
+// import NewsAndEvent from "../components/home/NewsAndEvent/NewsEvent";
 import Locattion from "../components/Location";
 
 const Home = () => {
