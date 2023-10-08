@@ -9,7 +9,7 @@ const SideNavItem = ({ sidebarData }) => {
 
   return (
     <div className="flex">
-      <div className="bg-gray-200 p-4">
+      <div className="bg-gray-200 p-4 ">
         <ul>
           {sidebarData.map((item, index) => (
             <li
@@ -18,11 +18,11 @@ const SideNavItem = ({ sidebarData }) => {
                 }`}
               onClick={() => handleItemClick(index)}
             >
-              <div class="flex items-center">
+              <div class="flex items-center " >
                 <div class="mr-2">
                   {item.icon}
                 </div>
-                <span>{item.title}</span>
+                <span className="block whitespace-nowrap">{item.title}</span>
               </div>
             </li>
           ))}

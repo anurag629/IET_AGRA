@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideNavItem from "./SideNavItem"; // Import the new component
 import PlacementServices from "./CellComponent/PlacementServices";
 import TrainingServices from "./CellComponent/TrainingServices"; // Import other components
 import Placements from "./CellComponent/Placements";
+import MoocCourse from "./CellComponent/MoocCourse";
 
 const SideNav = () => {
     const [selectedComponent, setSelectedComponent] = useState(null);
@@ -30,13 +30,23 @@ const SideNav = () => {
 
         },
         {
-            title: "Training Services",
+            title: "Placement Training",
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                     <path d="M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z" /></svg>
             ),
             component: <TrainingServices />,
         },
+        {
+            title: "Mooc Courses",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+</svg>
+
+            ),
+            component: <MoocCourse />,
+        }
     ];
 
     const handleItemClick = (component) => {
@@ -45,7 +55,7 @@ const SideNav = () => {
 
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div class="container mx-auto p-8">
+            <div class="container mx-auto p-8 h-screen">
                 <div className="flex">
                     <div>
                         {/* Pass all SidebarData to the SideNavItem component */}

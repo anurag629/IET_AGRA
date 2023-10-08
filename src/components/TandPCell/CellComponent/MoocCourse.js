@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Placements = () => {
+const MoocCourse = () => {
     return (
         <div class="flex flex-wrap items-center">
-            <div class="w-full md:w-5/12 px-4 mx-auto">
+            <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
                 <div class="  px-4 mr-auto">
 
                     <h3 class="text-3xl mb-2 font-semibold leading-normal">
-                        Placement Stats
+                        Mooc Courses completed by students
                     </h3>
                     <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                         Don't let your uses guess by attaching tooltips and popoves to
@@ -76,4 +76,4 @@ const Placements = () => {
     );
 };
 
-export default Placements;
+export default MoocCourse;
