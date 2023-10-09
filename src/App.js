@@ -4,7 +4,6 @@ import ResetPassword from "./pages/auth/ResetPassword";
 import ChangePassword from "./pages/auth/ChangePassword";
 import SendPasswordResetEmail from "./pages/auth/SendPasswordResetEmail";
 import Profile from "./components/dashboard/Profile";
-import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Gallery from "./components/gallery/Gallery";
@@ -21,7 +20,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="contact" element={<Contact />} />
             <Route path="login" element={!access_token ? <LoginReg /> : <Navigate to="/dashboard" />} />
             <Route path="changepassword" element={<ChangePassword />} />
             <Route path="sendpasswordresetemail" element={<SendPasswordResetEmail />} />
