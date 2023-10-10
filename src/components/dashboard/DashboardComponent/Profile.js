@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { unSetUserToken } from '../../../features/authSlice';
@@ -64,16 +64,24 @@ const Profile = () => {
 
     return (
         <>
-            <div className="container mx-auto p-8 ">
-                <div className="bg-gray-100 rounded-lg p-4 shadow-md items-center">
-                    <h2 className="text-3xl font-bold mb-4">ID: {userData.id}</h2>
-                    <h2 className="text-lg font-medium mb-2">User Type: {userTypes[userData.user_type]}</h2>
-                    <h2 className="text-lg font-medium mb-2">Name: {userData.name}</h2>
-                    <h2 className="text-lg font-medium mb-2">Email: {userData.email}</h2>
-                    <h2 className="text-lg font-medium mb-2">Phone: {userData.phone}</h2>
-                </div>
+            <Box
+                container
+                justifyContent='center'
+                component='form'
+                noValidate
+                sx={{ mt: 1, width: '100%' }} // Set width to 100%
+                id='registration-form'
+                className="p-8"
+            >
+                <h2 className="text-3xl font-bold mb-4 w-full">ID: {userData.id}</h2>
+                <h2 className="text-lg font-medium mb-2">User Type: {userTypes[userData.user_type]}</h2>
+                <h2 className="text-lg font-medium mb-2">Name: {userData.name}</h2>
+                <h2 className="text-lg font-medium mb-2">Email: {userData.email}</h2>
+                <h2 className="text-lg font-medium mb-2">Phone: {userData.phone}</h2>
+
                 <Button variant='contained' color='warning' size='large' onClick={handleLogout} sx={{ mt: 8 }}>Logout</Button>
-            </div>
+
+            </Box>
         </>
     );
 };
