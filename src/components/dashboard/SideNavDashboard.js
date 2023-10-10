@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { getToken } from '../../services/LocalStorageService';
 import { useGetLoggedUserQuery } from '../../services/userAuthApi';
 import { setUserInfo } from '../../features/userSlice';
-import { icon } from "@fortawesome/fontawesome-svg-core";
 
 const SideNavDashboard = () => {
     const [selectedComponent, setSelectedComponent] = useState(null);
@@ -63,7 +62,7 @@ const SideNavDashboard = () => {
             component: <Profile />,
         },
         // Pass the props as per user type using if else condition
-        
+
         
     ];
 
