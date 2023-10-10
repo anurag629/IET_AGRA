@@ -3,11 +3,11 @@ import LoginReg from "./pages/auth/LoginReg";
 import ResetPassword from "./pages/auth/ResetPassword";
 import ChangePassword from "./pages/auth/ChangePassword";
 import SendPasswordResetEmail from "./pages/auth/SendPasswordResetEmail";
-import Profile from "./components/dashboard/Profile";
+import Profile from "./components/dashboard/DashboardComponent/Profile";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Gallery from "./components/gallery/Gallery";
-import SideNav from "./components/TandPCell/SideNav";
+import SideNavTandP from "./components/TandPCell/SideNavTandP";
 import Layout from "./pages/Layout";
 import { useSelector } from "react-redux";
 
@@ -28,7 +28,7 @@ function App() {
             <Route path="/profile" element={access_token ? <Profile /> : <Navigate to="/login" />} />
             <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
             <Route path="gallery" element={<Gallery />} />
-            <Route path="tandpcell" element={<SideNav />} />
+            <Route path="tandpcell" element={<SideNavTandP />} />
           </Route>
 
         </Routes>

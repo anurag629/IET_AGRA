@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import SideNavItem from "./SideNavItem"; // Import the new component
+import SideNavItemTandP from "./SideNavItemTandP"; // Import the new component
 import PlacementServices from "./CellComponent/PlacementServices";
 import TrainingServices from "./CellComponent/TrainingServices"; // Import other components
 import Placements from "./CellComponent/Placements";
 import MoocCourse from "./CellComponent/MoocCourse";
 
-const SideNav = () => {
+const SideNavTandP = () => {
     const [selectedComponent, setSelectedComponent] = useState(null);
 
     const sidebarData = [
@@ -59,8 +59,8 @@ const SideNav = () => {
             <div class="container mx-auto p-8 h-screen">
                 <div className="flex">
                     <div>
-                        {/* Pass all SidebarData to the SideNavItem component */}
-                        <SideNavItem
+                        {/* Pass all SidebarData to the SideNavItemTandP component */}
+                        <SideNavItemTandP
                             sidebarData={sidebarData}
                             onItemClick={handleItemClick}
                         />
@@ -75,4 +75,4 @@ const SideNav = () => {
     );
 };
 
-export default SideNav;
+export default SideNavTandP;

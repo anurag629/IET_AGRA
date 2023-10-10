@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SideNavItem = ({ sidebarData }) => {
+const SideNavItemDashboard = ({ sidebarData }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
   const handleItemClick = (index) => {
@@ -35,4 +35,4 @@ const SideNavItem = ({ sidebarData }) => {
   );
 };
 
-export default SideNavItem;
+export default SideNavItemDashboard;
