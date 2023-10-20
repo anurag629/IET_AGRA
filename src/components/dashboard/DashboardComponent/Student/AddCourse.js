@@ -54,7 +54,7 @@ function AddCourse() {
                 id='name'
                 name='name'
                 label='Student Name'
-                value={formData.user}
+                value={formData.name}
                 onChange={handleChange}
                 inputMode='text'
             />
