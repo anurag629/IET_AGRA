@@ -2,22 +2,38 @@ import React, { useState } from 'react';
 import { Box, TextField, MenuItem, Typography, Checkbox, Button, CircularProgress } from '@mui/material';
 
 function AddCourse() {
-    const [studentName, setStudentName] = useState('');
-    const [courseName, setCourseName] = useState('');
-    const [courseDescription, setCourseDescription] = useState('');
-    const [courseDuration, setCourseDuration] = useState('');
-    const [courseFee, setCourseFee] = useState('');
+    const [formData, setFormData] = useState({
+        name: "",
+        course_name: "",
+        course_description: "",
+        course_duration: "",
+        course_fee: "",
+      });
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here you can handle the submission of the form data, for example by sending it to a server or updating the state of a parent component
-        console.log(`Submitted data:
-            Student Name: ${studentName}
-            Course Name: ${courseName}
-            Course Description: ${courseDescription}
-            Course Duration: ${courseDuration}
-            Course Fee: ${courseFee}
-        `);
+            const token = localStorage.getItem('access_token');
+            var reqHeaders = new Headers();
+        
+            reqHeaders = {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            };
+        
+            const response = fetch("https://placement-site.onrender.com/api/tnp/courses/create/", {
+                method: 'POST',
+                headers: reqHeaders,
+                body: JSON.stringify(formData),
+                redirect: 'follow'  
+            })
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
     };
 
     return (
@@ -38,52 +54,53 @@ function AddCourse() {
                 id='name'
                 name='name'
                 label='Student Name'
-                value={studentName}
-                onChange={(event) => setStudentName(event.target.value)}
+                value={formData.user}
+                onChange={handleChange}
+                inputMode='text'
             />
 
             <TextField
                 margin='normal'
                 required
                 fullWidth
-                id='course-name'
-                name='course-name'
+                id='course_name'
+                name='course_name'
                 label='Course Name'
-                value={courseName}
-                onChange={(event) => setCourseName(event.target.value)}
+                value={formData.course_name}
+                onChange={handleChange}
             />
 
             <TextField
                 margin='normal'
                 required
                 fullWidth
-                id='course-description'
-                name='course-description'
+                id='course_description'
+                name='course_description'
                 label='Course Description'
-                value={courseDescription}
-                onChange={(event) => setCourseDescription(event.target.value)}
+                value={formData.course_description}
+                onChange={handleChange}
             />
 
             <TextField
                 margin='normal'
                 required
                 fullWidth
-                id='course-duration'
-                name='course-duration'
+                id='course_duration'
+                name='course_duration'
                 label='Course Duration'
-                value={courseDuration}
-                onChange={(event) => setCourseDuration(event.target.value)}
+                value={formData.course_duration}
+                onChange={handleChange}
             />
 
             <TextField
                 margin='normal'
                 required
                 fullWidth
-                id='course-fee'
-                name='course-fee'
+                id='course_fee'
+                name='course_fee'
                 label='Course Fee'
-                value={courseFee}
-                onChange={(event) => setCourseFee(event.target.value)}
+                value={formData.course_fee}
+                onChange={handleChange}
             />
 
             <Button type='submit' variant='contained' sx={{ mt: 2, mb: 2, px: 5 }}>
