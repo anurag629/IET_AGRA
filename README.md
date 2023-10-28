@@ -2,20 +2,12 @@
 
 ![Screenshot 2023-10-27 234029](https://github.com/Ash0807/IET_AGRA/assets/93093775/97cdf022-efac-409d-b7a2-a2db3c7844e0)
 
-This is a HTML5 Responsive site template suitable for Courses, colleges, Workshop, Lessons and university sites. In this educational website we have't used any framework, totally based on core languages like HTML & CSS/Tailwind.css,javaScript and many more.
-.
-.
-.
-.
-### features
-- Valid and clean HTML5/CSS3 code
-- 3 different pages
-- Google Map
-- Free Fonts from Google Fonts
-- Free Icons from Font Awesome
-- Crossover Browsers Compatibility
-- Free Future Updates
-- etc
+- It is our Training & Placement responsive website though which we can know about our college placement records and the facilities offered by the college. 
+- In this  website we have used React.js and Tailwind.Css as a framework which include the functioning of library like Tailwind UI and Material.UI.
+- In backend we have use Angular.Js (JavaScript based Front-end Framework)
+
+## Contributing
+We are constantly working on towards making the placement portal more efficient and to speed up the overall service of Placement Portal to ensure smooth transition.
 .
 .
 .
