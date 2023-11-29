@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+
 const MoocCourse = () => {
     const [courses, setCourses] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false)
@@ -9,6 +10,7 @@ const MoocCourse = () => {
         .then(res => res.json())
         .then(
           (result) => {
+            console.log(result);
             setIsLoaded(true);
             setCourses(result);
           },
@@ -22,7 +24,7 @@ const MoocCourse = () => {
         <div className="flex flex-wrap items-center justify-center">
             <div className='p-8'>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                    Mooc Courses completed by students of IET Agra
+                    MOOC Courses completed by students of IET Agra
                 </h3>
                 <table className="w-full">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">

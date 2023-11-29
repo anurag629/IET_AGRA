@@ -11,6 +11,7 @@ const Placements = () => {
       .then(res => res.json())
       .then(
         (result) => {
+            console.log(result);
           setIsLoaded(true);
           setPlacements(result);
         },
@@ -33,31 +34,27 @@ const Placements = () => {
                         Student Name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Company
+                        Company Name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Placement/Internship
+                        Package (LPA)
                     </th>
-                    <th scope="col">
-                        Package
-                    </th>
+                    
                 </tr>
             </thead>
             <tbody>
                 {placements.map((placement, index) => (
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
-                        <td scope="row">
+                        <td scope="row" className="px-6 py-4">
                             {placement.name}
                         </td>
                         <td className="px-6 py-4">
                             {placement.company_name}
                         </td>
                         <td className="px-6 py-4">
-                            {placement.company_website}
-                        </td>
-                        <td className="px-6 py-4">
                             {placement.company_salary}
                         </td>
+                        
                     </tr>
                 ))}
             </tbody>

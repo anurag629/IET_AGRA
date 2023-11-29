@@ -20,6 +20,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.16",
     "flowbite": "^1.8.1",
+    "gapi-script": "^1.2.0",
     "postcss": "^8.4.31",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -29,7 +30,9 @@
     "react-slick": "^0.29.0",
     "react-styled-components": "^0.1.11",
     "redux": "^4.2.1",
+    "sheetdb-js": "^1.0.3",
     "slick-carousel": "^1.8.1",
+    "start": "^5.1.0",
     "styled-components": "^6.0.8",
     "tw-elements": "^1.0.0",
     "web-vitals": "^2.1.4"
