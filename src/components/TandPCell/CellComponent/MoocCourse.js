@@ -1,25 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const MoocCourse = () => {
     const [courses, setCourses] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false)
-  
+
     useEffect(() => {
-      fetch("https://placement-site.onrender.com/api/tnp/courses/list_all/")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            console.log(result);
-            setIsLoaded(true);
-            setCourses(result);
-          },
-          (error) => {
-            setIsLoaded(true);
-          }
-        )
+        fetch("https://placement-site.onrender.com/api/tnp/courses-list")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log(result);
+                    setIsLoaded(true);
+                    setCourses(result);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                }
+            )
     }, [])
-  
+
     return (
         <div className="flex flex-wrap items-center justify-center">
             <div className='p-8'>
@@ -33,10 +33,13 @@ const MoocCourse = () => {
                                 Student Name
                             </th>
                             <th scope="col" className="px-6 py-3">
+                                Branch
+                            </th>
+                            <th scope="col" className="px-6 py-3">
                                 Course Name
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Course Fee
+                                Certificate
                             </th>
                             <th>
                                 Course Duration
@@ -45,20 +48,26 @@ const MoocCourse = () => {
                     </thead>
                     <tbody>
                         {courses.map((course, index) => (
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
-                            <th scope="row">
-                                {course.name}
-                            </th>
-                            <td className="px-6 py-4">
-                                {course.course_name}
-                            </td>
-                            <td className="px-6 py-4">
-                                {course.course_fee}
-                            </td>
-                            <td className="px-6 py-4">
-                                {course.course_duration}
-                            </td>
-                        </tr>
+                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
+                                <th scope="row">
+                                    {course.student_name}
+                                </th>
+                                <td className="px-6 py-4">
+                                    {course.student_branch}
+                                </td>
+                                <td className="px-6 py-4">
+                                    {course.course_name}
+                                </td>
+                                <td className="px-6 py-4">
+                                    {/* Display certificate as link */}
+                                    <a href={course.course_certificate} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                        View Certificate
+                                    </a>
+                                </td>
+                                <td className="px-6 py-4">
+                                    {course.course_duration}
+                                </td>
+                            </tr>
                         ))}
                     </tbody>
                 </table>
