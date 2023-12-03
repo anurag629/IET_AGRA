@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Box, TextField, MenuItem, Typography, Checkbox, Button, CircularProgress } from '@mui/material';
 
 function AddCourse() {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         company_name: "",
         company_email: "",
         company_salary: "",
-      });
-    
+    });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -16,23 +17,28 @@ function AddCourse() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-            const token = localStorage.getItem('access_token');
-            var reqHeaders = new Headers();
+        const token = localStorage.getItem('access_token');
+        var reqHeaders = new Headers();
+
+        reqHeaders = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        };
         
-            reqHeaders = {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
-            };
-        
-            const response = fetch("https://placement-site.onrender.com/api/tnp/placement/create/", {
-                method: 'POST',
-                headers: reqHeaders,
-                body: JSON.stringify(formData),
-                redirect: 'follow'  
-            })
-              .then(response => response.text())
-              .then(result => console.log(result))
-              .catch(error => console.log('error', error));
+        const response = fetch("https://placement-site.onrender.com/api/tnp/placement-create/", {
+            method: 'POST',
+            headers: reqHeaders,
+            body: JSON.stringify(formData),
+            redirect: 'follow'
+        })
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
     };
 
     return (
@@ -92,9 +98,9 @@ function AddCourse() {
                 onChange={handleChange}
             />
 
-            <Button type='submit' variant='contained' sx={{ mt: 2, mb: 2, px: 5 }}>
-                Add Placement
-            </Button>
+            <Box textAlign='center'>
+                {isLoading ? <CircularProgress /> : <Button type='submit' variant='contained' sx={{ mt: 3, mb: 2, px: 5 }}>Add Course</Button>}
+            </Box>
         </Box>
     );
 }

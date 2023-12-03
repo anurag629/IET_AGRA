@@ -7,7 +7,7 @@ const Placements = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     useEffect(() => {
-        fetch("https://placement-site.onrender.com/api/tnp/placement-list/")
+        fetch("https://placement-site.onrender.com/api/tnp/placement-list-approved/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -25,7 +25,7 @@ const Placements = () => {
         <div className="flex flex-wrap items-center justify-center">
             <div className='p-8'>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                    Placement Stats
+                    Placement Statistics
                 </h3>
                 <table className="w-full">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
