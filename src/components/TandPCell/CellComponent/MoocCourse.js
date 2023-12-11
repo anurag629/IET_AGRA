@@ -3,22 +3,51 @@ import React, { useState, useEffect } from 'react';
 
 const MoocCourse = () => {
     const [courses, setCourses] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [batch, setBatch] = useState([]);
 
     useEffect(() => {
-        fetch("https://ietagra-backend.onrender.com/api/course/course-list-approved/")
+        fetch("https://project-iet-tnp-bk.vercel.app/api/course/course-list-approved/")
             .then(res => res.json())
             .then(
                 (result) => {
                     console.log(result);
-                    setIsLoaded(true);
                     setCourses(result);
                 },
                 (error) => {
-                    setIsLoaded(true);
+                    console.log(error);
                 }
             )
     }, [])
+
+    const getAllBatches = () => {
+        const apiUrl = `https://project-iet-tnp-bk.vercel.app/api/batch/batch-list-all/`;
+
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((result) => {
+                setBatch(result);
+            })
+            .catch((error) => {
+                console.error('Error fetching batch:', error);
+            });
+    }
+
+  
+
+    useEffect(() => {
+        getAllBatches();
+    }, []);
+
+    const findBatch = (id) => {
+        const filteredBatch = batch.filter(e => e.id === id);
+
+        if (filteredBatch[0] === undefined) {
+            return null;
+        }
+        else {
+            return filteredBatch[0].fields;
+        }
+    }
 
     return (
         <div className="flex flex-wrap items-center justify-center">
@@ -30,12 +59,15 @@ const MoocCourse = () => {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3 block whitespace-nowrap">
+                                Batch
+                            </th>
+                            <th scope="col" className="px-6 py-3">
                                 Student Name
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Branch
                             </th>
-                            <th>
+                            <th scope="col" className="px-6 py-3">
                                 Platform
                             </th>
                             <th scope="col" className="px-6 py-3">
@@ -52,7 +84,10 @@ const MoocCourse = () => {
                     <tbody>
                         {courses.map((course, index) => (
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
-                                <th scope="row">
+                                <th scope="row" className="px-6 py-4">
+                                    {findBatch(course.fields.student_batch[0]) && findBatch(course.fields.student_batch[0]).batch}
+                                </th>
+                                <th className="px-6 py-4">
                                     {course.fields.student_name}
                                 </th>
                                 <td className="px-6 py-4">

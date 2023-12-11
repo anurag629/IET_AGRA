@@ -5,18 +5,16 @@ const ViewPlacementTeacher = () => {
 
     // Get all the courses from the API
     const [placements, setPlacements] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false)
     const [selectedPlacement, setSelectedPlacement] = useState(null);
     const [batch, setBatch] = useState([]);
 
 
     const getAllPlacements = () => {
-        fetch("https://ietagra-backend.onrender.com/api/placement/placement-list-all/")
+        fetch("https://project-iet-tnp-bk.vercel.app/api/placement/placement-list-all/")
             .then((response) => response.json())
             .then((result) => {
                 setPlacements(result);
                 console.log(result);
-                setIsLoaded(true);
             })
             .catch((error) => {
                 console.error('Error fetching placements:', error);
@@ -24,7 +22,7 @@ const ViewPlacementTeacher = () => {
     }
 
     const getAllBatches = () => {
-        const apiUrl = `https://ietagra-backend.onrender.com/api/batch/batch-list-all/`;
+        const apiUrl = `https://project-iet-tnp-bk.vercel.app/api/batch/batch-list-all/`;
 
         fetch(apiUrl)
             .then((response) => response.json())

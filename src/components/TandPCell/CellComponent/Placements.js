@@ -8,7 +8,7 @@ const Placements = () => {
     const [batch, setBatch] = useState([]);
 
     useEffect(() => {
-        fetch("https://ietagra-backend.onrender.com/api/placement/placement-list-approved/")
+        fetch("https://project-iet-tnp-bk.vercel.app/api/placement/placement-list-approved/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -23,7 +23,7 @@ const Placements = () => {
     }, [])
     
     const getAllBatches = () => {
-        const apiUrl = `https://ietagra-backend.onrender.com/api/batch/batch-list-all/`;
+        const apiUrl = `https://project-iet-tnp-bk.vercel.app/api/batch/batch-list-all/`;
 
         fetch(apiUrl)
             .then((response) => response.json())
@@ -86,7 +86,7 @@ const Placements = () => {
                         {placements.map((placement, index) => (
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
                                 <th scope="row">
-                                {findBatch(placement.fields.student_batch[0]) && findBatch(placement.fields.student_batch[0]).batch}
+                                    {findBatch(placement.fields.student_batch[0]) && findBatch(placement.fields.student_batch[0]).batch}
                                 </th>
                                 <td scope="row" className="px-6 py-4">
                                     {placement.fields.student_name}

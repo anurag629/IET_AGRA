@@ -28,8 +28,8 @@ const ViewPlacementDetails = ({ placement, onClose, onUpdate }) => {
 
     const handleUpdate = () => {
         // Make a PUT request to update the details
-        // Using the provided API endpoint 'https://ietagra-backend.onrender.com/api/placement/placement-update/id/'
-        const apiUrl = `https://ietagra-backend.onrender.com/api/placement/placement-update/${placement.id}/`;
+        // Using the provided API endpoint 'https://project-iet-tnp-bk.vercel.app/api/placement/placement-update/id/'
+        const apiUrl = `https://project-iet-tnp-bk.vercel.app/api/placement/placement-update/${placement.id}/`;
 
         const requestOptions = {
             method: 'PATCH',
@@ -70,7 +70,7 @@ const ViewPlacementDetails = ({ placement, onClose, onUpdate }) => {
 
     // Get all the batches from the API
     const getAllBatches = () => {
-        const apiUrl = `https://ietagra-backend.onrender.com/api/batch/batch-list-all/`;
+        const apiUrl = `https://project-iet-tnp-bk.vercel.app/api/batch/batch-list-all/`;
 
         fetch(apiUrl)
             .then((response) => response.json())

@@ -6,7 +6,7 @@ const ViewCourseTeacher = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch("https://ietagra-backend.onrender.com/api/course/course-list-all/")
+        fetch("https://project-iet-tnp-bk.vercel.app/api/course/course-list-all/")
             .then(res => res.json())
             .then(
                 (result) => {
