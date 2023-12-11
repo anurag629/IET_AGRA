@@ -6,7 +6,7 @@ const MoocCourse = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetch("https://placement-site.onrender.com/api/tnp/courses-list-approved/")
+        fetch("https://ietagra-backend.onrender.com/api/course/course-list-approved/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -50,22 +50,23 @@ const MoocCourse = () => {
                         {courses.map((course, index) => (
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
                                 <th scope="row">
-                                    {course.student_name}
+                                    {course.fields.student_name}
                                 </th>
                                 <td className="px-6 py-4">
-                                    {course.student_branch}
+                                    {course.fields.student_branch}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {course.course_name}
+                                    {course.fields.course_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {/* Display certificate as link */}
-                                    <a href={course.course_certificate} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
-                                        View Certificate
+                                    {/* Display certificate as link */
+                                    <a href={course.fields.course_certificate[0].url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                        View certificate
                                     </a>
+                                    }
                                 </td>
                                 <td className="px-6 py-4">
-                                    {course.course_duration}
+                                    {course.fields.course_duration}
                                 </td>
                             </tr>
                         ))}
