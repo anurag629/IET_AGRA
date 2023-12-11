@@ -50,7 +50,7 @@ function AddCourse() {
                     src="https://airtable.com/embed/appZduFY0weOWiejW/shr1vyd4U6kgV6hm5?backgroundColor=cyan" 
                     frameborder="0" 
                     onmousewheel="" 
-                    
+                    width="1000px"
                     height="1533" 
                     style={{background: 'transparent', border: '1px solid #ccc'}}
                     >

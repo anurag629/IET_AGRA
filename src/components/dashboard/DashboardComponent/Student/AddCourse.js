@@ -40,11 +40,11 @@ function AddCourse() {
         <div>
             <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
             <iframe 
-                class="airtable-embed airtable-dynamic-height" 
+                className="airtable-embed airtable-dynamic-height" 
                 src="https://airtable.com/embed/appZduFY0weOWiejW/shrF8ucBHliPSJRwJ?backgroundColor=cyan" 
                 frameborder="0" 
                 onmousewheel="" 
-                width="100%" 
+                width="1000px"
                 height="1717" 
                 style={{background: 'transparent', border: '1px solid #ccc'}}
                 >
