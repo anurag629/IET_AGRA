@@ -37,76 +37,20 @@ function AddCourse() {
     };
 
     return (
-        <Box
-            container
-            justifyContent='center'
-            component='form'
-            noValidate
-            sx={{ mt: 1 }}
-            id='registration-form'
-            onSubmit={handleSubmit}
-            className="p-8"
-        >
-            <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='name'
-                name='name'
-                label='Student Name'
-                value={formData.name}
-                onChange={handleChange}
-                inputMode='text'
-            />
+        <div>
+            <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+            <iframe 
+                class="airtable-embed airtable-dynamic-height" 
+                src="https://airtable.com/embed/appZduFY0weOWiejW/shrF8ucBHliPSJRwJ?backgroundColor=cyan" 
+                frameborder="0" 
+                onmousewheel="" 
+                width="100%" 
+                height="1717" 
+                style={{background: 'transparent', border: '1px solid #ccc'}}
+                >
 
-            <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='course_name'
-                name='course_name'
-                label='Course Name'
-                value={formData.course_name}
-                onChange={handleChange}
-            />
-
-            <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='course_description'
-                name='course_description'
-                label='Course Description'
-                value={formData.course_description}
-                onChange={handleChange}
-            />
-
-            <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='course_duration'
-                name='course_duration'
-                label='Course Duration'
-                value={formData.course_duration}
-                onChange={handleChange}
-            />
-
-            <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='course_fee'
-                name='course_fee'
-                label='Course Fee'
-                value={formData.course_fee}
-                onChange={handleChange}
-            />
-
-            <Button type='submit' variant='contained' sx={{ mt: 2, mb: 2, px: 5 }}>
-                Add Course
-            </Button>
-        </Box>
+            </iframe>
+        </div>
     );
 }
 

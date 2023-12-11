@@ -9,7 +9,7 @@ const SideNavItemTandP = ({ sidebarData }) => {
 
   return (
     <div className="flex">
-      <div className="bg-gray-200 p-4 ">
+      <div className="bg-gray-200 p-4 sticky">
         <ul>
           {sidebarData.map((item, index) => (
             <li

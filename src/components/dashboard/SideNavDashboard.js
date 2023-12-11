@@ -183,7 +183,7 @@ const SideNavDashboard = () => {
 
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div class="container mx-auto p-8 h-screen">
+            <div class="container mx-auto p-8">
                 <div className="flex">
                     <div>
                         {/* Pass all SidebarData to the SideNavItemDashboard component */}

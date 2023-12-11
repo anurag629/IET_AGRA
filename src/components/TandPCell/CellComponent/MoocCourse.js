@@ -35,13 +35,16 @@ const MoocCourse = () => {
                             <th scope="col" className="px-6 py-3">
                                 Branch
                             </th>
+                            <th>
+                                Platform
+                            </th>
                             <th scope="col" className="px-6 py-3">
                                 Course Name
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Certificate
                             </th>
-                            <th>
+                            <th scope="col" className="px-6 py-3">
                                 Course Duration
                             </th>
                         </tr>
@@ -56,11 +59,14 @@ const MoocCourse = () => {
                                     {course.fields.student_branch}
                                 </td>
                                 <td className="px-6 py-4">
+                                    {course.fields.course_platform}
+                                </td>
+                                <td className="px-6 py-4">
                                     {course.fields.course_name}
                                 </td>
                                 <td className="px-6 py-4">
                                     {/* Display certificate as link */
-                                    <a href={course.fields.course_certificate[0].url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                    <a href={course.fields.course_certificate} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
                                         View certificate
                                     </a>
                                     }
