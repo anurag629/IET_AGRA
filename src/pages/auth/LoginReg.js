@@ -28,15 +28,15 @@ const LoginReg = () => {
           <div className="border-b-2 border-gray-200">
             <div className="flex justify-center">
               <button className={`tab ${value === 0 ? 'active' : ''} py-2 px-4 font-semibold rounded-t-lg focus:outline-none`} onClick={() => handleChange(null, 0)}>Login</button>
-              <button className={`tab ${value === 1 ? 'active' : ''} py-2 px-4 font-semibold rounded-t-lg focus:outline-none`} onClick={() => handleChange(null, 1)}>Registration</button>
+              {/* <button className={`tab ${value === 1 ? 'active' : ''} py-2 px-4 font-semibold rounded-t-lg focus:outline-none`} onClick={() => handleChange(null, 1)}>Registration</button> */}
             </div>
           </div>
           <TabPanel value={value} index={0}>
             <UserLogin />
           </TabPanel>
-          <TabPanel value={value} index={1}>
+          {/* <TabPanel value={value} index={1}>
             <Registration />
-          </TabPanel>
+          </TabPanel> */}
         </div>
         
       </div>
