@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 const Placements = () => {
     const [placements, setPlacements] = useState([]);
+    const [imageError, setImageError] = useState(false);
 
 
     useEffect(() => {
@@ -18,8 +19,8 @@ const Placements = () => {
                 }
             )
     }, [])
-    
-  
+
+
 
     return (
         <div className="flex flex-wrap items-center justify-center">
@@ -35,6 +36,9 @@ const Placements = () => {
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Student Name
+                            </th>
+                            <th>
+                                Profile Picture
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Company Name
@@ -59,6 +63,24 @@ const Placements = () => {
                                 </th>
                                 <td scope="row" className="px-6 py-4">
                                     {placement.fields.student_name}
+                                </td>
+                                <td>
+                                    <div className="flex items-center">
+                                        {placement.fields.profile_picture && <img
+                                            src={(placement.fields.profile_picture && placement.fields.profile_picture[0].url)}
+                                            alt="student_image"
+                                            className="w-12 h-12 rounded-md mr-4"
+                                            
+                                            
+                                        />}
+                                        {!placement.fields.profile_picture && 
+                                            <img
+                                            src="./images/smile_emoji.jpg"
+                                            alt="student_image"
+                                            className="w-10 h-10 rounded-md mr-4"
+                                            />
+                                        }
+                                    </div>
                                 </td>
                                 <td className="px-6 py-4">
                                     {placement.fields.company_name}
