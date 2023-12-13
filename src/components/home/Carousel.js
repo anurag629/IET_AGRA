@@ -12,7 +12,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="container mx-auto md:px-6 mt-4">
+        <div className="container mx-auto md:px-6 mt-8">
             <section className="mb-32">
                 <div id="default-carousel" className="relative w-full" data-carousel="slide">
                     <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
