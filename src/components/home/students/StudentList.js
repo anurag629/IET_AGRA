@@ -44,7 +44,7 @@ const StudentList = () => {
         },
         {
             name: 'Manoj Kumar',
-            cgpa: '7.5 CGPA',
+            cgpa: '7.8 CGPA',
             imageUrl: 'https://media.licdn.com/dms/image/D4D03AQHh2a0jdYVEyQ/profile-displayphoto-shrink_800_800/0/1702620139248?e=1707955200&v=beta&t=D-AmSw9zO3IN8yIfKcQW2Q9EICuPf-YK0P2iwAbjQpg',
         }
        
