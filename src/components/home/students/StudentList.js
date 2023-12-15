@@ -43,9 +43,9 @@ const StudentList = () => {
             imageUrl: 'https://media.licdn.com/dms/image/C4E03AQGo2oRIExsjgw/profile-displayphoto-shrink_800_800/0/1663817247858?e=1707955200&v=beta&t=aq8UEI_Aa89Tk1vJVAaqSLnzsMNdsX97xbCJmOmqtPc',
         },
         {
-            name: 'Himanshu Jaiswal',
+            name: 'Manoj Kumar',
             cgpa: '7.5 CGPA',
-            imageUrl: 'https://media.licdn.com/dms/image/C4D03AQFU3njPQrYw2A/profile-displayphoto-shrink_800_800/0/1628921726721?e=1707955200&v=beta&t=SWDnNr_FbMA_SI7duCNb5UJXXeND12SaIajmtdr4Ziw',
+            imageUrl: 'https://media.licdn.com/dms/image/D4D03AQHh2a0jdYVEyQ/profile-displayphoto-shrink_800_800/0/1702620139248?e=1707955200&v=beta&t=D-AmSw9zO3IN8yIfKcQW2Q9EICuPf-YK0P2iwAbjQpg',
         }
        
         // Add other students here
