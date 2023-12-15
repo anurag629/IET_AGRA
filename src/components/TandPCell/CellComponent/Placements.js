@@ -162,6 +162,10 @@ const Placements = () => {
                                 {sortBy === 'package' && sortOrder === 'asc' && <span>▲</span>}
                                 {sortBy === 'package' && sortOrder === 'desc' && <span>▼</span>}
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                Offer Letter
+                            </th>
+
 
                         </tr>
                     </thead>
@@ -203,6 +207,19 @@ const Placements = () => {
                                 </td>
                                 <td className="px-6 py-4">
                                     {placement.fields.student_salary}
+                                </td>
+                                <td className="px-6 py-4">
+
+                                    {placement.fields.offer_letter ? (
+                                        <a href={placement.fields.offer_letter && placement.fields.offer_letter[0].url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                            View Offer Letter
+                                        </a>
+                                    ) :
+                                        (
+                                            <p>Not Available</p>
+                                        )}
+
+
                                 </td>
 
                             </tr>
