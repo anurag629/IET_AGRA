@@ -3,11 +3,15 @@ import Carousel from "../components/home/Carousel";
 import Students from "../components/home/students/Students";
 // import NewsAndEvent from "../components/home/NewsAndEvent/NewsEvent";
 import Locattion from "../components/Location";
+import Hero from "../components/home/Hero";
 
 const Home = () => {
 
   return (
     <>
+      <section >
+        <Hero />
+        </section>
       <section >
         <Carousel />
       </section>
