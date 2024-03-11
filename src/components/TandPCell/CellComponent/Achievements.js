@@ -3,8 +3,8 @@ import React from 'react';
 const TrainingServices = () => {
     return (
 
-        <div class="flex flex-wrap item-full">
-            <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+        <div className="flex flex-wrap items-center justify-center">
+            <div className='p-8'>
 
                 <h3 class="text-3xl mb-2 font-semibold leading-normal">
                     Achievements
@@ -54,17 +54,7 @@ const TrainingServices = () => {
                 </p>
                 {/* <a href="https://63034a7373d24551811fa3e3--shiny-fox-46fa01.netlify.app/" class="font-bold text-blueGray-700 mt-8">Projects</a> */}
 
-                <h3 class="text-3xl mb-2 font-semibold leading-normal">
-                    Project Links
-                </h3>
-                <ul class="list-disc list-inside text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                    <li>
-                        <a href="https://63034a7373d24551811fa3e3--shiny-fox-46fa01.netlify.app/">Project 1</a>
-                    </li>
-                    <li>
-                        <a href="https://majorprojectdetails.netlify.app/">Project 2</a>
-                    </li>
-                </ul>
+                
             </div>
         </div>
 
