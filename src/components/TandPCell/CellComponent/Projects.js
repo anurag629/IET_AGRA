@@ -12,7 +12,7 @@ const Projects = () => {
 
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/projects/projects-list-approved/")
+        fetch("https://project-iet-tnp-bk.vercel.app/api/projects/projects-list-approved/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -170,48 +170,28 @@ const Projects = () => {
                                     {project.fields.student_name}
                                 </td>
                                 <td>
-                                    <div className="flex items-center">
-                                        {project.fields.profile_picture && <img
-                                            src={(project.fields.profile_picture && project.fields.profile_picture[0].url)}
-                                            alt="student_image"
-                                            className="w-12 h-12 rounded-md mr-4"
-
-
-                                        />}
-                                        {!project.fields.profile_picture &&
-                                            <img
-                                                src="./images/smile_emoji.jpg"
-                                                alt="student_image"
-                                                className="w-10 h-10 rounded-md mr-4"
-                                            />
-                                        }
-                                    </div>
+                                    {project.fields.project_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {project.fields.company_name}
+                                    {project.fields.technology}
                                 </td>
                                 <td className="px-6 py-4">
                                     {project.fields.student_branch}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {project.fields.position_offered}
+                                    {project.fields.supervisor}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {project.fields.student_salary}
-                                </td>
-                                <td className="px-6 py-4">
-
-                                    {project.fields.offer_letter ? (
-                                        <a href={project.fields.offer_letter && project.fields.offer_letter[0].url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
-                                            View Offer Letter
+                                    {project.fields.github_link ? (
+                                        <a href={project.fields.github_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                            View Project
                                         </a>
                                     ) :
                                         (
                                             <p>Not Available</p>
                                         )}
-
-
                                 </td>
+                                
 
                             </tr>
                         ))}
