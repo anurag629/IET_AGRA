@@ -156,6 +156,9 @@ const Projects = () => {
                             <th scope="col" classname="px-6 py-3">
                                 GitHub link
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                Ppt Link 
+                            </th>
 
 
                         </tr>
@@ -191,6 +194,17 @@ const Projects = () => {
                                             <p>Not Available</p>
                                         )}
                                 </td>
+                                <td className="px-6 py-4">
+                                    {project.fields.ppt_link ? (
+                                        <a href={project.fields.ppt_link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">
+                                            View PPT
+                                        </a>
+                                    ) :
+                                        (
+                                            <p>Not Available</p>
+                                        )}
+                                </td>
+                                
                                 
 
                             </tr>
