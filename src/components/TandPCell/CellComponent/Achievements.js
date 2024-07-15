@@ -52,7 +52,7 @@ const TrainingServices = () => {
                 <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
                     ⋄ Some great work done by our students can be viewed via the link provided below ..
                 </p>
-                {/* <a href="https://63034a7373d24551811fa3e3--shiny-fox-46fa01.netlify.app/" class="font-bold text-blueGray-700 mt-8">Projects</a> */}
+                <a href="https://63034a7373d24551811fa3e3--shiny-fox-46fa01.netlify.app/" class="font-bold text-blueGray-700 mt-8">Projects Completed by Students</a>
 
                 
             </div>
