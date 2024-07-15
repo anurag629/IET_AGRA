@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [batchFilter, setBatchFilter] = useState('');
-    const [companyFilter, setCompanyFilter] = useState('');
+    const [supervisorFilter, setSupervisorFilter] = useState('');
     const [branchFilter, setBranchFilter] = useState('');
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [sortBy, setSortBy] = useState(''); // 'package' or ''
@@ -30,7 +30,7 @@ const Projects = () => {
         const filteredData = projects.filter(project => {
             return (
                 (batchFilter === '' || project.fields.student_batch === batchFilter) &&
-                (companyFilter === '' || project.fields.company_name === companyFilter) &&
+                (supervisorFilter === '' || project.fields.supervisor === supervisorFilter) &&
                 (branchFilter === '' || project.fields.student_branch === branchFilter)
             );
         });
@@ -38,7 +38,7 @@ const Projects = () => {
     };
 
     const batchOptions = [...new Set(projects.map(project => project.fields.student_batch))];
-    const companyOptions = [...new Set(projects.map(project => project.fields.company_name))];
+    const supervisorOptions = [...new Set(projects.map(project => project.fields.supervisor))];
     const branchOptions = [...new Set(projects.map(project => project.fields.student_branch))];
 
 
@@ -94,14 +94,14 @@ const Projects = () => {
                     </div>
 
                     <div className="flex items-center mb-4">
-                        <label className="px-6 py-3 block whitespace-nowrap">Company:</label>
+                        <label className="px-6 py-3 block whitespace-nowrap">Supervisor:</label>
                         <select
-                            value={companyFilter}
-                            onChange={(e) => setCompanyFilter(e.target.value)}
+                            value={supervisorFilter}
+                            onChange={(e) => setSupervisorFilter(e.target.value)}
                             className="border p-1"
                         >
                             <option value="">All</option>
-                            {companyOptions.map((option, index) => (
+                            {supervisorOptions.map((option, index) => (
                                 <option key={index} value={option}>
                                     {option}
                                 </option>
