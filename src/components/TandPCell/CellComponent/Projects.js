@@ -120,6 +120,10 @@ const Projects = () => {
 
                     </div>
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
                 <div className="flex flex-col mb-4">
                     <div className="flex items-center mb-4">
                         <label className="px-6 py-3 block whitespace-nowrap">Batch:</label>
