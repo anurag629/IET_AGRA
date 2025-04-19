@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { getToken } from "../../services/LocalStorageService";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { getToken } from '../../services/LocalStorageService';
 
 const Navbar = () => {
   const { access_token } = getToken();
@@ -25,12 +25,12 @@ const Navbar = () => {
               <p className="sr-only">IET AGRA</p>
             </Link>
           </div>
-          
+
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
             <NavLink to="/" exact>
               Home
             </NavLink>
-            <NavLink to="/tandpcell">T&P Cell</NavLink>
+            <NavLink to="/tandpcell">Career Excellence Hub</NavLink>
             <NavLink to="/gallery">Gallery</NavLink>
           </div>
           <div className="flex items-center justify-end gap-3 md:flex">
@@ -52,10 +52,7 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            <button
-              onClick={toggleMobileMenu}
-              className="p-2 focus:outline-none"
-            >
+            <button onClick={toggleMobileMenu} className="p-2 focus:outline-none">
               {isMobileMenuOpen ? (
                 <svg
                   className="h-6 w-6 text-gray-900"
@@ -98,7 +95,6 @@ const Navbar = () => {
               </NavLink>
               <NavLink to="/tandpcell">T&P Cell</NavLink>
               <NavLink to="/gallery">Gallery</NavLink>
-              
             </div>
           </div>
         )}
@@ -113,7 +109,7 @@ const NavLink = ({ to, children, exact }) => {
     <Link
       to={to}
       className={`inline-block rounded-lg px-2 py-1 text-sm font-medium transition-all duration-200 ${
-        isActive ? "text-blue-600 bg-gray-100" : "text-gray-900 hover:bg-gray-100"
+        isActive ? 'text-blue-600 bg-gray-100' : 'text-gray-900 hover:bg-gray-100'
       }`}
     >
       {children}
