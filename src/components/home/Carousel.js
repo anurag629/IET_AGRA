@@ -1,64 +1,173 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-const Carousel = () => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const placementImages = [
+  {
+    id: 1,
+    src: '/images/tnp01.jpg',
+    title: 'Traning and Placememts at a Glance',
+    description: 'Our students secured offers from top companies across industries',
+  },
+  {
+    id: 2,
+    src: '/images/tnp02.jpg',
+    title: 'Events and Workshops',
+    description: 'Engaging workshops and events to enhance skills and knowledge',
+  },
+];
 
-    const handleNext = () => {
-        setCurrentImageIndex((currentImageIndex + 1) % 5);
-    };
+const PlacementGallery = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    const handlePrev = () => {
-        setCurrentImageIndex((currentImageIndex - 1 + 5) % 5);
-    };
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex === placementImages.length - 1 ? 0 : prevIndex + 1));
+  }, []);
 
-    return (
-        <div className="container mx-auto md:px-6 mt-8">
-            <section className="mb-32">
-                <div id="default-carousel" className="relative w-full" data-carousel="slide">
-                    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item style={{ display: currentImageIndex === 0 ? 'block' : 'none' }}>
-                            <img src="./images/college_front_side.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                        </div>
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item style={{ display: currentImageIndex === 1 ? 'block' : 'none' }}>
-                            <img src="./images/college_teachers.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                        </div>
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item style={{ display: currentImageIndex === 2 ? 'block' : 'none' }}>
-                            <img src="./images/college_front.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                        </div>
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item style={{ display: currentImageIndex === 3 ? 'block' : 'none' }}>
-                            <img src="./images/college_tour.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                        </div>
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item style={{ display: currentImageIndex === 4 ? 'block' : 'none' }}>
-                            <img src="../../images/building2.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                        </div>
-                    </div>
-                    <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                        <button type="button" className={`w-3 h-3 rounded-full ${currentImageIndex === 0 ? 'bg-white' : 'bg-gray-400'}`} aria-current={currentImageIndex === 0} aria-label="Slide 1" data-carousel-slide-to="0" onClick={() => setCurrentImageIndex(0)}></button>
-                        <button type="button" className={`w-3 h-3 rounded-full ${currentImageIndex === 1 ? 'bg-white' : 'bg-gray-400'}`} aria-current={currentImageIndex === 1} aria-label="Slide 2" data-carousel-slide-to="1" onClick={() => setCurrentImageIndex(1)}></button>
-                        <button type="button" className={`w-3 h-3 rounded-full ${currentImageIndex === 2 ? 'bg-white' : 'bg-gray-400'}`} aria-current={currentImageIndex === 2} aria-label="Slide 3" data-carousel-slide-to="2" onClick={() => setCurrentImageIndex(2)}></button>
-                        <button type="button" className={`w-3 h-3 rounded-full ${currentImageIndex === 3 ? 'bg-white' : 'bg-gray-400'}`} aria-current={currentImageIndex === 3} aria-label="Slide 4" data-carousel-slide-to="3" onClick={() => setCurrentImageIndex(3)}></button>
-                        <button type="button" className={`w-3 h-3 rounded-full ${currentImageIndex === 4 ? 'bg-white' : 'bg-gray-400'}`} aria-current={currentImageIndex === 4} aria-label="Slide 5" data-carousel-slide-to="4" onClick={() => setCurrentImageIndex(4)}></button>
-                    </div>
-                    <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev onClick={handlePrev}>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
-                            </svg>
-                            <span className="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next onClick={handleNext}>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                            <span className="sr-only">Next</span>
-                        </span>
-                    </button>
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? placementImages.length - 1 : prevIndex - 1));
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  return (
+    <section className="bg-gradient-to-b from-gray-50 to-white py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 sm:mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+            Placement Records
+          </span>
+        </h2>
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6 md:mb-10 max-w-3xl mx-auto px-2">
+          Explore the impressive placement achievements of our students and the leading companies
+          that recruit from our Campus.
+        </p>
+
+        {/* Carousel Container */}
+        <div className="relative overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg sm:shadow-xl md:shadow-2xl mx-auto w-full max-w-5xl">
+          {/* Main Carousel */}
+          <div className="relative h-[250px] xs:h-[300px] sm:h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
+            {placementImages.map((image, index) => (
+              <div
+                key={image.id}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/50 to-transparent p-3 sm:p-4 md:p-6 lg:p-8 text-white">
+                  <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                    {image.title}
+                  </h3>
+                  <p className="text-xs xs:text-sm md:text-base font-medium opacity-90 line-clamp-2 sm:line-clamp-none">
+                    {image.description}
+                  </p>
                 </div>
-            </section>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Arrows - Hidden on smallest screens, visible from small screens up */}
+          <button
+            onClick={prevSlide}
+            className="hidden xs:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 text-gray-800 p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all duration-300 items-center justify-center"
+            aria-label="Previous slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="hidden xs:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 text-gray-800 p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all duration-300 items-center justify-center"
+            aria-label="Next slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Swipe Indicator - Only on small screens */}
+          <div className="xs:hidden absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white/80 text-xs z-20 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 mr-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
+            </svg>
+            Swipe
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </div>
+
+          {/* Indicator Dots */}
+          <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 md:space-x-3 z-20">
+            {placementImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
-export default Carousel;
+export default PlacementGallery;
