@@ -52,7 +52,7 @@ const Home = () => {
       description:
         'Learn about circuits, devices, and communication systems with cutting-edge technology and practical applications.',
       icon: '🔌',
-      path: '/departments/ece',
+      path: '/',
       bgColor: 'from-red-500 to-pink-500',
     },
     {
