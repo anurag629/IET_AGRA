@@ -11,9 +11,9 @@ import SideNavTandP from './components/TandPCell/SideNavTandP';
 import Layout from './pages/Layout';
 import { useSelector } from 'react-redux';
 import TNPCell from './components/home/DepartmentWiseData/TNPCell';
-import CseDepartment from './components/home/DepartmentWiseData/CseDepartment';
 import MeDepartment from './components/home/DepartmentWiseData/MeDepartment';
 import EceDepartment from './components/home/DepartmentWiseData/EceDepartment';
+import CseDepartment from './components/home/DepartmentWiseData/CSEDepartment/index';
 
 function App() {
   const { access_token } = useSelector((state) => state.auth);
