@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Hero from '../components/home/Hero';
 
 const Home = () => {
   // Carousel state and logic
@@ -40,14 +39,6 @@ const Home = () => {
       bgColor: 'from-green-500 to-emerald-400',
     },
     {
-      name: 'Mechanical Engineering',
-      description:
-        'Explore the fascinating world of machines, thermodynamics, and manufacturing with our state-of-the-art labs and experienced faculty.',
-      icon: '🔧',
-      path: '/departments/me',
-      bgColor: 'from-blue-500 to-cyan-400',
-    },
-    {
       name: 'Electronics Engineering',
       description:
         'Learn about circuits, devices, and communication systems with cutting-edge technology and practical applications.',
@@ -70,6 +61,14 @@ const Home = () => {
       icon: '🏗️',
       path: '/',
       bgColor: 'from-teal-500 to-cyan-400',
+    },
+    {
+      name: 'Mechanical Engineering',
+      description:
+        'Explore the fascinating world of machines, thermodynamics, and manufacturing with our state-of-the-art labs and experienced faculty.',
+      icon: '🔧',
+      path: '/departments/me',
+      bgColor: 'from-blue-500 to-cyan-400',
     },
   ];
 
