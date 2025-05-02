@@ -14,6 +14,8 @@ import TNPCell from './components/home/DepartmentWiseData/TNPCell';
 import MeDepartment from './components/home/DepartmentWiseData/MeDepartment';
 import EceDepartment from './components/home/DepartmentWiseData/EceDepartment';
 import CseDepartment from './components/home/DepartmentWiseData/CSEDepartment/index';
+import EeDepartment from './components/home/DepartmentWiseData/EeDepartment';
+import CivilDepartment from './components/home/DepartmentWiseData/CivilDepartment/CivilDepartment';
 
 function App() {
   const { access_token } = useSelector((state) => state.auth);
@@ -42,6 +44,8 @@ function App() {
             <Route path="/departments/cse" element={<CseDepartment />} />
             <Route path="/departments/me" element={<MeDepartment />} />
             <Route path="/departments/ece" element={<EceDepartment />} />
+            <Route path="/departments/ee" element={<EeDepartment />} />
+            <Route path="/departments/civil" element={<CivilDepartment />} />
             <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="tandpcell" element={<SideNavTandP />} />
